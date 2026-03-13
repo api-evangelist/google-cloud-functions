@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "gcloud": "https://cloud.google.com/functions/docs/reference/rest/v2/projects.locations.functions#",
+    "Function": "gcloud:Function",
+    "name": "schema:name",
+    "description": "schema:description",
+    "state": "schema:status",
+    "url": "schema:url",
+    "updateTime": "schema:dateModified",
+    "labels": "schema:keywords",
+    "environment": "schema:additionalType",
+    "buildConfig": {
+      "@id": "schema:SoftwareSourceCode",
+      "@context": {
+        "runtime": "schema:runtimePlatform",
+        "entryPoint": "schema:name",
+        "source": "schema:codeRepository",
+        "dockerRepository": "schema:url"
+      }
+    },
+    "serviceConfig": {
+      "@id": "schema:WebAPI",
+      "@context": {
+        "uri": "schema:url",
+        "timeoutSeconds": "schema:duration",
+        "availableMemory": "schema:memoryRequirements",
+        "serviceAccountEmail": "schema:email"
+      }
+    },
+    "eventTrigger": {
+      "@id": "schema:Action",
+      "@context": {
+        "eventType": "schema:additionalType",
+        "pubsubTopic": "schema:name"
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/google-cloud-functions/refs/heads/main/json-schema/google-cloud-functions-function-schema.json",
+  "title": "Google Cloud Function",
+  "description": "Represents a Cloud Function, a lightweight, event-driven serverless compute unit that executes user code in response to events or HTTP requests.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Output only. The resource name of the function in the format projects/{project}/locations/{location}/functions/{function}."
+    },
+    "description": {
+      "type": "string",
+      "description": "User-provided description of the function."
+    },
+    "environment": {
+      "type": "string",
+      "enum": ["ENVIRONMENT_UNSPECIFIED", "GEN_1", "GEN_2"],
+      "description": "The environment the function is hosted on."
+    },
+    "buildConfig": {
+      "type": "object",
+      "description": "Describes the build step of the function.",
+      "properties": {
+        "runtime": {
+          "type": "string",
+          "description": "The runtime in which to run the function."
+        },
+        "entryPoint": {
+          "type": "string",
+          "description": "The name of the function entry point."
+        },
+        "source": {
+          "type": "object",
+          "description": "Source code location.",
+          "properties": {
+            "storageSource": {
+              "type": "object",
+              "properties": {
+                "bucket": { "type": "string" },
+                "object": { "type": "string" },
+                "generation": { "type": "string" }
+              }
+            },
+            "repoSource": {
+              "type": "object",
+              "properties": {
+                "projectId": { "type": "string" },
+                "repoName": { "type": "string" },
+                "branchName": { "type": "string" }
+              }
+            }
+          }
+        },
+        "dockerRepository": { "type": "string" },
+        "workerPool": { "type": "string" },
+        "environmentVariables": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      }
+    },
+    "serviceConfig": {
+      "type": "object",
+      "description": "Describes the service configuration for the function.",
+      "properties": {
+        "service": { "type": "string" },
+        "timeoutSeconds": { "type": "integer" },
+        "availableMemory": { "type": "string" },
+        "maxInstanceCount": { "type": "integer" },
+        "minInstanceCount": { "type": "integer" },
+        "availableCpu": { "type": "string" },
+        "environmentVariables": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "ingressSettings": {
+          "type": "string",
+          "enum": ["INGRESS_SETTINGS_UNSPECIFIED", "ALLOW_ALL", "ALLOW_INTERNAL_ONLY", "ALLOW_INTERNAL_AND_GCLB"]
+        },
+        "uri": {
+          "type": "string",
+          "format": "uri",
+          "description": "Output only. URI of the deployed service."
+        },
+        "serviceAccountEmail": { "type": "string" }
+      }
+    },
+    "eventTrigger": {
+      "type": "object",
+      "description": "An event trigger configuration.",
+      "properties": {
+        "eventType": { "type": "string" },
+        "pubsubTopic": { "type": "string" },
+        "serviceAccountEmail": { "type": "string" },
+        "retryPolicy": {
+          "type": "string",
+          "enum": ["RETRY_POLICY_UNSPECIFIED", "RETRY_POLICY_DO_NOT_RETRY", "RETRY_POLICY_RETRY"]
+        }
+      }
+    },
+    "state": {
+      "type": "string",
+      "enum": ["STATE_UNSPECIFIED", "ACTIVE", "FAILED", "DEPLOYING", "DELETING", "UNKNOWN"],
+      "description": "Output only. State of the function."
+    },
+    "updateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Output only. The last update timestamp of the function."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "Labels associated with this function."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Output only. The deployed URL for the function."
+    }
+  }
+}

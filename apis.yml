@@ -1,0 +1,41 @@
+name: Google Cloud Functions
+description: >-
+  Google Cloud Functions is a lightweight, event-driven, serverless compute platform that allows you to create small, single-purpose functions that respond to cloud events without the need to manage a server or runtime environment.
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/google-cloud-functions/refs/heads/main/apis.yml
+created: '2026-03-13'
+modified: '2026-03-13'
+specificationVersion: '0.18'
+tags:
+- Serverless
+- Functions
+- Event-Driven
+- Google Cloud
+apis:
+- name: Google Cloud Functions API
+  description: >-
+    The Cloud Functions API manages lightweight user-provided functions executed in response to events. It allows you to create, update, delete, and invoke cloud functions, as well as manage their configurations, runtimes, and triggers.
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  humanURL: https://cloud.google.com/functions/docs
+  baseURL: https://cloudfunctions.googleapis.com
+  tags:
+  - Serverless
+  - Functions
+  - Event-Driven
+  properties:
+  - type: Documentation
+    url: https://cloud.google.com/functions/docs/reference/rest
+  - type: OpenAPI
+    url: openapi/google-cloud-functions-openapi.yml
+  - type: JSONSchema
+    url: json-schema/google-cloud-functions-function-schema.json
+common:
+- type: GettingStarted
+  url: https://cloud.google.com/functions/docs/quickstart
+- type: Pricing
+  url: https://cloud.google.com/functions/pricing
+- type: JSON-LD
+  url: json-ld/google-cloud-functions-context.jsonld
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

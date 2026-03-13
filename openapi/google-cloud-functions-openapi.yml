@@ -1,0 +1,587 @@
+openapi: 3.1.0
+info:
+  title: Google Cloud Functions API
+  description: >-
+    The Cloud Functions API manages lightweight user-provided functions executed
+    in response to events. It supports creating, updating, deleting, and listing
+    functions, as well as managing their runtimes, build configurations, and triggers.
+  version: v2
+  contact:
+    name: Google Cloud
+    url: https://cloud.google.com/functions
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: Google Cloud Functions Documentation
+  url: https://cloud.google.com/functions/docs/reference/rest
+servers:
+- url: https://cloudfunctions.googleapis.com/v2
+  description: Google Cloud Functions API v2
+security:
+- oauth2: []
+tags:
+- name: Functions
+  description: Operations for managing cloud functions
+- name: Operations
+  description: Long-running operation management
+- name: Locations
+  description: Available locations for Cloud Functions
+- name: Runtimes
+  description: Operations for listing available runtimes
+paths:
+  /projects/{projectId}/locations:
+    get:
+      operationId: listLocations
+      summary: List available locations
+      description: Lists available locations for the given project.
+      tags:
+      - Locations
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListLocationsResponse'
+  /projects/{projectId}/locations/{location}/functions:
+    get:
+      operationId: listFunctions
+      summary: List functions
+      description: Lists functions in the given project and location.
+      tags:
+      - Functions
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListFunctionsResponse'
+    post:
+      operationId: createFunction
+      summary: Create a function
+      description: Creates a new function in the given project and location.
+      tags:
+      - Functions
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: functionId
+        in: query
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Function'
+      responses:
+        '200':
+          description: Successful response with long-running operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{projectId}/locations/{location}/functions/{functionId}:
+    get:
+      operationId: getFunction
+      summary: Get a function
+      description: Returns a function with the given name from the requested project.
+      tags:
+      - Functions
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: functionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Function'
+    patch:
+      operationId: updateFunction
+      summary: Update a function
+      description: Updates an existing function.
+      tags:
+      - Functions
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: functionId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Function'
+      responses:
+        '200':
+          description: Successful response with long-running operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+    delete:
+      operationId: deleteFunction
+      summary: Delete a function
+      description: Deletes a function with the given name from the specified project.
+      tags:
+      - Functions
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: functionId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with long-running operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+  /projects/{projectId}/locations/{location}/runtimes:
+    get:
+      operationId: listRuntimes
+      summary: List runtimes
+      description: Returns a list of runtimes that are supported for the requested project.
+      tags:
+      - Runtimes
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: filter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListRuntimesResponse'
+  /projects/{projectId}/locations/{location}/functions/{functionId}:generateUploadUrl:
+    post:
+      operationId: generateUploadUrl
+      summary: Generate upload URL
+      description: Returns a signed URL for uploading a function source code.
+      tags:
+      - Functions
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: functionId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                kmsKeyName:
+                  type: string
+                environment:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uploadUrl:
+                    type: string
+                  storageSource:
+                    type: object
+                    properties:
+                      bucket:
+                        type: string
+                      object:
+                        type: string
+                      generation:
+                        type: string
+  /projects/{projectId}/locations/{location}/operations/{operationId}:
+    get:
+      operationId: getOperation
+      summary: Get an operation
+      description: Gets the latest state of a long-running operation.
+      tags:
+      - Operations
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: location
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: operationId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            https://www.googleapis.com/auth/cloud-platform: Full access to Google Cloud Platform
+  schemas:
+    Function:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Output only. The resource name of the function.
+        description:
+          type: string
+          description: User-provided description of the function.
+        environment:
+          type: string
+          enum:
+          - ENVIRONMENT_UNSPECIFIED
+          - GEN_1
+          - GEN_2
+          description: The environment the function is hosted on.
+        buildConfig:
+          type: object
+          properties:
+            build:
+              type: string
+            runtime:
+              type: string
+              description: The runtime in which to run the function (e.g., nodejs20, python312).
+            entryPoint:
+              type: string
+              description: The name of the function within the source code.
+            source:
+              type: object
+              properties:
+                storageSource:
+                  type: object
+                  properties:
+                    bucket:
+                      type: string
+                    object:
+                      type: string
+                    generation:
+                      type: string
+                repoSource:
+                  type: object
+                  properties:
+                    projectId:
+                      type: string
+                    repoName:
+                      type: string
+                    branchName:
+                      type: string
+                    tagName:
+                      type: string
+                    commitSha:
+                      type: string
+                    dir:
+                      type: string
+            dockerRepository:
+              type: string
+            workerPool:
+              type: string
+            environmentVariables:
+              type: object
+              additionalProperties:
+                type: string
+        serviceConfig:
+          type: object
+          properties:
+            service:
+              type: string
+            timeoutSeconds:
+              type: integer
+            availableMemory:
+              type: string
+            maxInstanceCount:
+              type: integer
+            minInstanceCount:
+              type: integer
+            availableCpu:
+              type: string
+            environmentVariables:
+              type: object
+              additionalProperties:
+                type: string
+            maxInstanceRequestConcurrency:
+              type: integer
+            vpcConnector:
+              type: string
+            vpcConnectorEgressSettings:
+              type: string
+              enum:
+              - VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED
+              - PRIVATE_RANGES_ONLY
+              - ALL_TRAFFIC
+            ingressSettings:
+              type: string
+              enum:
+              - INGRESS_SETTINGS_UNSPECIFIED
+              - ALLOW_ALL
+              - ALLOW_INTERNAL_ONLY
+              - ALLOW_INTERNAL_AND_GCLB
+            uri:
+              type: string
+              description: Output only. URI of the Service deployed.
+            serviceAccountEmail:
+              type: string
+            allTrafficOnLatestRevision:
+              type: boolean
+        eventTrigger:
+          type: object
+          properties:
+            trigger:
+              type: string
+            triggerRegion:
+              type: string
+            eventType:
+              type: string
+            eventFilters:
+              type: array
+              items:
+                type: object
+                properties:
+                  attribute:
+                    type: string
+                  value:
+                    type: string
+                  operator:
+                    type: string
+            pubsubTopic:
+              type: string
+            serviceAccountEmail:
+              type: string
+            retryPolicy:
+              type: string
+              enum:
+              - RETRY_POLICY_UNSPECIFIED
+              - RETRY_POLICY_DO_NOT_RETRY
+              - RETRY_POLICY_RETRY
+            channel:
+              type: string
+        state:
+          type: string
+          enum:
+          - STATE_UNSPECIFIED
+          - ACTIVE
+          - FAILED
+          - DEPLOYING
+          - DELETING
+          - UNKNOWN
+          description: Output only. State of the function.
+        updateTime:
+          type: string
+          format: date-time
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        url:
+          type: string
+          description: Output only. The deployed URL for the function.
+        kmsKeyName:
+          type: string
+    ListFunctionsResponse:
+      type: object
+      properties:
+        functions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Function'
+        nextPageToken:
+          type: string
+        unreachable:
+          type: array
+          items:
+            type: string
+    ListRuntimesResponse:
+      type: object
+      properties:
+        runtimes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              displayName:
+                type: string
+              stage:
+                type: string
+                enum:
+                - RUNTIME_STAGE_UNSPECIFIED
+                - DEVELOPMENT
+                - ALPHA
+                - BETA
+                - GA
+                - DEPRECATED
+                - DECOMMISSIONED
+              warnings:
+                type: array
+                items:
+                  type: string
+              environment:
+                type: string
+    ListLocationsResponse:
+      type: object
+      properties:
+        locations:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              locationId:
+                type: string
+        nextPageToken:
+          type: string
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
