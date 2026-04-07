@@ -16,41 +16,41 @@ externalDocs:
   description: Google Cloud Functions Documentation
   url: https://cloud.google.com/functions/docs/reference/rest
 servers:
-- url: https://cloudfunctions.googleapis.com/v2
-  description: Google Cloud Functions API v2
+  - url: https://cloudfunctions.googleapis.com/v2
+    description: Google Cloud Functions API v2
 security:
-- oauth2: []
+  - oauth2: []
 tags:
-- name: Functions
-  description: Operations for managing cloud functions
-- name: Operations
-  description: Long-running operation management
-- name: Locations
-  description: Available locations for Cloud Functions
-- name: Runtimes
-  description: Operations for listing available runtimes
+  - name: Functions
+    description: Operations for managing cloud functions
+  - name: Operations
+    description: Long-running operation management
+  - name: Locations
+    description: Available locations for Cloud Functions
+  - name: Runtimes
+    description: Operations for listing available runtimes
 paths:
   /projects/{projectId}/locations:
     get:
       operationId: listLocations
-      summary: List available locations
+      summary: Google Cloud Functions List available locations
       description: Lists available locations for the given project.
       tags:
-      - Locations
+        - Locations
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        schema:
-          type: integer
-      - name: pageToken
-        in: query
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -61,37 +61,37 @@ paths:
   /projects/{projectId}/locations/{location}/functions:
     get:
       operationId: listFunctions
-      summary: List functions
+      summary: Google Cloud Functions List functions
       description: Lists functions in the given project and location.
       tags:
-      - Functions
+        - Functions
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: location
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        schema:
-          type: integer
-      - name: pageToken
-        in: query
-        schema:
-          type: string
-      - name: filter
-        in: query
-        schema:
-          type: string
-      - name: orderBy
-        in: query
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          schema:
+            type: integer
+        - name: pageToken
+          in: query
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
+        - name: orderBy
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -101,25 +101,25 @@ paths:
                 $ref: '#/components/schemas/ListFunctionsResponse'
     post:
       operationId: createFunction
-      summary: Create a function
+      summary: Google Cloud Functions Create a function
       description: Creates a new function in the given project and location.
       tags:
-      - Functions
+        - Functions
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: location
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: functionId
-        in: query
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: functionId
+          in: query
+          schema:
+            type: string
       requestBody:
         required: true
         content:
@@ -136,26 +136,26 @@ paths:
   /projects/{projectId}/locations/{location}/functions/{functionId}:
     get:
       operationId: getFunction
-      summary: Get a function
+      summary: Google Cloud Functions Get a function
       description: Returns a function with the given name from the requested project.
       tags:
-      - Functions
+        - Functions
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: location
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: functionId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: functionId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -165,30 +165,30 @@ paths:
                 $ref: '#/components/schemas/Function'
     patch:
       operationId: updateFunction
-      summary: Update a function
+      summary: Google Cloud Functions Update a function
       description: Updates an existing function.
       tags:
-      - Functions
+        - Functions
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: location
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: functionId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: updateMask
-        in: query
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: functionId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: updateMask
+          in: query
+          schema:
+            type: string
       requestBody:
         required: true
         content:
@@ -204,26 +204,26 @@ paths:
                 $ref: '#/components/schemas/Operation'
     delete:
       operationId: deleteFunction
-      summary: Delete a function
+      summary: Google Cloud Functions Delete a function
       description: Deletes a function with the given name from the specified project.
       tags:
-      - Functions
+        - Functions
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: location
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: functionId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: functionId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response with long-running operation
@@ -234,25 +234,25 @@ paths:
   /projects/{projectId}/locations/{location}/runtimes:
     get:
       operationId: listRuntimes
-      summary: List runtimes
+      summary: Google Cloud Functions List runtimes
       description: Returns a list of runtimes that are supported for the requested project.
       tags:
-      - Runtimes
+        - Runtimes
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: location
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: filter
-        in: query
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: filter
+          in: query
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -263,26 +263,26 @@ paths:
   /projects/{projectId}/locations/{location}/functions/{functionId}:generateUploadUrl:
     post:
       operationId: generateUploadUrl
-      summary: Generate upload URL
+      summary: Google Cloud Functions Generate upload URL
       description: Returns a signed URL for uploading a function source code.
       tags:
-      - Functions
+        - Functions
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: location
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: functionId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: functionId
+          in: path
+          required: true
+          schema:
+            type: string
       requestBody:
         content:
           application/json:
@@ -315,26 +315,26 @@ paths:
   /projects/{projectId}/locations/{location}/operations/{operationId}:
     get:
       operationId: getOperation
-      summary: Get an operation
+      summary: Google Cloud Functions Get an operation
       description: Gets the latest state of a long-running operation.
       tags:
-      - Operations
+        - Operations
       parameters:
-      - name: projectId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: location
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: operationId
-        in: path
-        required: true
-        schema:
-          type: string
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: location
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: operationId
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -365,9 +365,9 @@ components:
         environment:
           type: string
           enum:
-          - ENVIRONMENT_UNSPECIFIED
-          - GEN_1
-          - GEN_2
+            - ENVIRONMENT_UNSPECIFIED
+            - GEN_1
+            - GEN_2
           description: The environment the function is hosted on.
         buildConfig:
           type: object
@@ -441,16 +441,16 @@ components:
             vpcConnectorEgressSettings:
               type: string
               enum:
-              - VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED
-              - PRIVATE_RANGES_ONLY
-              - ALL_TRAFFIC
+                - VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED
+                - PRIVATE_RANGES_ONLY
+                - ALL_TRAFFIC
             ingressSettings:
               type: string
               enum:
-              - INGRESS_SETTINGS_UNSPECIFIED
-              - ALLOW_ALL
-              - ALLOW_INTERNAL_ONLY
-              - ALLOW_INTERNAL_AND_GCLB
+                - INGRESS_SETTINGS_UNSPECIFIED
+                - ALLOW_ALL
+                - ALLOW_INTERNAL_ONLY
+                - ALLOW_INTERNAL_AND_GCLB
             uri:
               type: string
               description: Output only. URI of the Service deployed.
@@ -485,20 +485,20 @@ components:
             retryPolicy:
               type: string
               enum:
-              - RETRY_POLICY_UNSPECIFIED
-              - RETRY_POLICY_DO_NOT_RETRY
-              - RETRY_POLICY_RETRY
+                - RETRY_POLICY_UNSPECIFIED
+                - RETRY_POLICY_DO_NOT_RETRY
+                - RETRY_POLICY_RETRY
             channel:
               type: string
         state:
           type: string
           enum:
-          - STATE_UNSPECIFIED
-          - ACTIVE
-          - FAILED
-          - DEPLOYING
-          - DELETING
-          - UNKNOWN
+            - STATE_UNSPECIFIED
+            - ACTIVE
+            - FAILED
+            - DEPLOYING
+            - DELETING
+            - UNKNOWN
           description: Output only. State of the function.
         updateTime:
           type: string
@@ -540,13 +540,13 @@ components:
               stage:
                 type: string
                 enum:
-                - RUNTIME_STAGE_UNSPECIFIED
-                - DEVELOPMENT
-                - ALPHA
-                - BETA
-                - GA
-                - DEPRECATED
-                - DECOMMISSIONED
+                  - RUNTIME_STAGE_UNSPECIFIED
+                  - DEVELOPMENT
+                  - ALPHA
+                  - BETA
+                  - GA
+                  - DEPRECATED
+                  - DECOMMISSIONED
               warnings:
                 type: array
                 items:
