@@ -23,10 +23,10 @@ security:
 tags:
   - name: Functions
     description: Operations for managing cloud functions
-  - name: Operations
-    description: Long-running operation management
   - name: Locations
     description: Available locations for Cloud Functions
+  - name: Operations
+    description: Long-running operation management
   - name: Runtimes
     description: Operations for listing available runtimes
 paths:
