@@ -1,0 +1,627 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Functions API
+  description: The Cloud Functions API manages lightweight user-provided functions executed in response to events. It supports
+    creating, updating, deleting, and listing functions, as well as managing their runtimes, build configurations, and triggers.
+  tags:
+  - Google
+  - Cloud
+  - Functions
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-functions
+    baseUri: https://cloudfunctions.googleapis.com/v2
+    description: Google Cloud Functions API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{GOOGLE_CLOUD_FUNCTIONS_TOKEN}}'
+    resources:
+    - name: projects-projectid-locations
+      path: /projects/{projectId}/locations
+      operations:
+      - name: listlocations
+        method: GET
+        description: Google Cloud Functions List available locations
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-functions
+      path: /projects/{projectId}/locations/{location}/functions
+      operations:
+      - name: listfunctions
+        method: GET
+        description: Google Cloud Functions List functions
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+        - name: filter
+          in: query
+          type: string
+        - name: orderBy
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createfunction
+        method: POST
+        description: Google Cloud Functions Create a function
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: functionId
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-functions-
+      path: /projects/{projectId}/locations/{location}/functions/{functionId}
+      operations:
+      - name: getfunction
+        method: GET
+        description: Google Cloud Functions Get a function
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: functionId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatefunction
+        method: PATCH
+        description: Google Cloud Functions Update a function
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: functionId
+          in: path
+          type: string
+          required: true
+        - name: updateMask
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletefunction
+        method: DELETE
+        description: Google Cloud Functions Delete a function
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: functionId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-runtimes
+      path: /projects/{projectId}/locations/{location}/runtimes
+      operations:
+      - name: listruntimes
+        method: GET
+        description: Google Cloud Functions List runtimes
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: filter
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-functions-
+      path: /projects/{projectId}/locations/{location}/functions/{functionId}:generateUploadUrl
+      operations:
+      - name: generateuploadurl
+        method: POST
+        description: Google Cloud Functions Generate upload URL
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: functionId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: projects-projectid-locations-location-operations
+      path: /projects/{projectId}/locations/{location}/operations/{operationId}
+      operations:
+      - name: getoperation
+        method: GET
+        description: Google Cloud Functions Get an operation
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: location
+          in: path
+          type: string
+          required: true
+        - name: operationId
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: google-cloud-functions-rest
+    description: REST adapter for Google Cloud Functions API.
+    resources:
+    - path: /projects/{projectId}/locations
+      name: listlocations
+      operations:
+      - method: GET
+        name: listlocations
+        description: Google Cloud Functions List available locations
+        call: google-cloud-functions.listlocations
+        with:
+          projectId: rest.projectId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/functions
+      name: listfunctions
+      operations:
+      - method: GET
+        name: listfunctions
+        description: Google Cloud Functions List functions
+        call: google-cloud-functions.listfunctions
+        with:
+          projectId: rest.projectId
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/functions
+      name: createfunction
+      operations:
+      - method: POST
+        name: createfunction
+        description: Google Cloud Functions Create a function
+        call: google-cloud-functions.createfunction
+        with:
+          projectId: rest.projectId
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/functions/{functionId}
+      name: getfunction
+      operations:
+      - method: GET
+        name: getfunction
+        description: Google Cloud Functions Get a function
+        call: google-cloud-functions.getfunction
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          functionId: rest.functionId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/functions/{functionId}
+      name: updatefunction
+      operations:
+      - method: PATCH
+        name: updatefunction
+        description: Google Cloud Functions Update a function
+        call: google-cloud-functions.updatefunction
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          functionId: rest.functionId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/functions/{functionId}
+      name: deletefunction
+      operations:
+      - method: DELETE
+        name: deletefunction
+        description: Google Cloud Functions Delete a function
+        call: google-cloud-functions.deletefunction
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          functionId: rest.functionId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/runtimes
+      name: listruntimes
+      operations:
+      - method: GET
+        name: listruntimes
+        description: Google Cloud Functions List runtimes
+        call: google-cloud-functions.listruntimes
+        with:
+          projectId: rest.projectId
+          location: rest.location
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/functions/{functionId}:generateUploadUrl
+      name: generateuploadurl
+      operations:
+      - method: POST
+        name: generateuploadurl
+        description: Google Cloud Functions Generate upload URL
+        call: google-cloud-functions.generateuploadurl
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          functionId: rest.functionId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /projects/{projectId}/locations/{location}/operations/{operationId}
+      name: getoperation
+      operations:
+      - method: GET
+        name: getoperation
+        description: Google Cloud Functions Get an operation
+        call: google-cloud-functions.getoperation
+        with:
+          projectId: rest.projectId
+          location: rest.location
+          operationId: rest.operationId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: google-cloud-functions-mcp
+    transport: http
+    description: MCP adapter for Google Cloud Functions API for AI agent use.
+    tools:
+    - name: listlocations
+      description: Google Cloud Functions List available locations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-functions.listlocations
+      with:
+        projectId: tools.projectId
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: pageToken
+        type: string
+        description: pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listfunctions
+      description: Google Cloud Functions List functions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-functions.listfunctions
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+        filter: tools.filter
+        orderBy: tools.orderBy
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: pageSize
+        type: integer
+        description: pageSize
+      - name: pageToken
+        type: string
+        description: pageToken
+      - name: filter
+        type: string
+        description: filter
+      - name: orderBy
+        type: string
+        description: orderBy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createfunction
+      description: Google Cloud Functions Create a function
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-functions.createfunction
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        functionId: tools.functionId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: functionId
+        type: string
+        description: functionId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getfunction
+      description: Google Cloud Functions Get a function
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-functions.getfunction
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        functionId: tools.functionId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: functionId
+        type: string
+        description: functionId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatefunction
+      description: Google Cloud Functions Update a function
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-functions.updatefunction
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        functionId: tools.functionId
+        updateMask: tools.updateMask
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: functionId
+        type: string
+        description: functionId
+        required: true
+      - name: updateMask
+        type: string
+        description: updateMask
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletefunction
+      description: Google Cloud Functions Delete a function
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: google-cloud-functions.deletefunction
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        functionId: tools.functionId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: functionId
+        type: string
+        description: functionId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listruntimes
+      description: Google Cloud Functions List runtimes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-functions.listruntimes
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        filter: tools.filter
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: filter
+        type: string
+        description: filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: generateuploadurl
+      description: Google Cloud Functions Generate upload URL
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: google-cloud-functions.generateuploadurl
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        functionId: tools.functionId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: functionId
+        type: string
+        description: functionId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getoperation
+      description: Google Cloud Functions Get an operation
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-functions.getoperation
+      with:
+        projectId: tools.projectId
+        location: tools.location
+        operationId: tools.operationId
+      inputParameters:
+      - name: projectId
+        type: string
+        description: projectId
+        required: true
+      - name: location
+        type: string
+        description: location
+        required: true
+      - name: operationId
+        type: string
+        description: operationId
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_FUNCTIONS_TOKEN: GOOGLE_CLOUD_FUNCTIONS_TOKEN
