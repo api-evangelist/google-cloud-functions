@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Google Cloud Functions API — Locations
+  description: 'Google Cloud Functions API — Locations. 1 operations. Lead operation: Google Cloud Functions List available
+    locations. Self-contained Naftiko capability covering one Google Cloud Functions business surface.'
+  tags:
+  - Google Cloud Functions
+  - Locations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    GOOGLE_CLOUD_FUNCTIONS_API_KEY: GOOGLE_CLOUD_FUNCTIONS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: google-cloud-functions-locations
+    baseUri: https://cloudfunctions.googleapis.com/v2
+    description: Google Cloud Functions API — Locations business capability. Self-contained, no shared references.
+    resources:
+    - name: projects-projectId-locations
+      path: /projects/{projectId}/locations
+      operations:
+      - name: listlocations
+        method: GET
+        description: Google Cloud Functions List available locations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: projectId
+          in: path
+          type: string
+          required: true
+        - name: pageSize
+          in: query
+          type: integer
+        - name: pageToken
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.GOOGLE_CLOUD_FUNCTIONS_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: google-cloud-functions-locations-rest
+    port: 8080
+    description: REST adapter for Google Cloud Functions API — Locations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/projects/{projectid}/locations
+      name: projects-projectid-locations
+      description: REST surface for projects-projectId-locations.
+      operations:
+      - method: GET
+        name: listlocations
+        description: Google Cloud Functions List available locations
+        call: google-cloud-functions-locations.listlocations
+        with:
+          projectId: rest.projectId
+          pageSize: rest.pageSize
+          pageToken: rest.pageToken
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: google-cloud-functions-locations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Google Cloud Functions API — Locations. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: google-cloud-functions-list-available
+      description: Google Cloud Functions List available locations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: google-cloud-functions-locations.listlocations
+      with:
+        projectId: tools.projectId
+        pageSize: tools.pageSize
+        pageToken: tools.pageToken
+      outputParameters:
+      - type: object
+        mapping: $.
