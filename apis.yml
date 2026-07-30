@@ -3,7 +3,20 @@ name: Google Cloud Functions
 description: >-
   Google Cloud Functions is a lightweight, event-driven, serverless compute platform that allows you to create small,
   single-purpose functions that respond to cloud events without the need to manage a server or runtime environment.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/google-cloud-functions.png
 url: https://raw.githubusercontent.com/api-evangelist/google-cloud-functions/refs/heads/main/apis.yml
 created: '2026-03-13'
 modified: '2026-05-19'
@@ -15,30 +28,81 @@ tags:
   - Google Cloud
   - Serverless
 apis:
-  - name: Google Cloud Functions API
-    description: >-
-      The Cloud Functions API manages lightweight user-provided functions executed in response to events. It allows you
-      to create, update, delete, and invoke cloud functions, as well as manage their configurations, runtimes, and
-      triggers.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://cloud.google.com/functions/docs
-    baseURL: https://cloudfunctions.googleapis.com
-    tags:
-      - Event-Driven
-      - Functions
-      - Serverless
-    properties:
-      - type: Documentation
-        url: https://cloud.google.com/functions/docs/reference/rest
-      - type: OpenAPI
-        url: openapi/google-cloud-functions-openapi.yml
-      - type: Authentication
-        url: https://cloud.google.com/functions/docs/securing
-      - type: GettingStarted
-        url: https://cloud.google.com/functions/docs/quickstart
-      - type: JSONSchema
-        url: json-schema/google-cloud-functions-function-schema.json
+- aid: google-cloud-functions:google-cloud-functions-functions-api
+  name: Google Cloud Functions Functions API
+  description: Operations for managing cloud functions
+  humanURL: https://cloud.google.com/functions/docs
+  baseURL: https://cloudfunctions.googleapis.com
+  tags:
+  - Functions
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-functions-functions-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/functions/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/functions/docs/securing
+  - type: GettingStarted
+    url: https://cloud.google.com/functions/docs/quickstart
+  - type: JSONSchema
+    url: json-schema/google-cloud-functions-function-schema.json
+- aid: google-cloud-functions:google-cloud-functions-locations-api
+  name: Google Cloud Functions Locations API
+  description: Available locations for Cloud Functions
+  humanURL: https://cloud.google.com/functions/docs
+  baseURL: https://cloudfunctions.googleapis.com
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-functions-locations-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/functions/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/functions/docs/securing
+  - type: GettingStarted
+    url: https://cloud.google.com/functions/docs/quickstart
+  - type: JSONSchema
+    url: json-schema/google-cloud-functions-function-schema.json
+- aid: google-cloud-functions:google-cloud-functions-operations-api
+  name: Google Cloud Functions Operations API
+  description: Long-running operation management
+  humanURL: https://cloud.google.com/functions/docs
+  baseURL: https://cloudfunctions.googleapis.com
+  tags:
+  - Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-functions-operations-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/functions/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/functions/docs/securing
+  - type: GettingStarted
+    url: https://cloud.google.com/functions/docs/quickstart
+  - type: JSONSchema
+    url: json-schema/google-cloud-functions-function-schema.json
+- aid: google-cloud-functions:google-cloud-functions-runtimes-api
+  name: Google Cloud Functions Runtimes API
+  description: Operations for listing available runtimes
+  humanURL: https://cloud.google.com/functions/docs
+  baseURL: https://cloudfunctions.googleapis.com
+  tags:
+  - Runtimes
+  properties:
+  - type: OpenAPI
+    url: openapi/google-cloud-functions-runtimes-api-openapi.yml
+  - type: Documentation
+    url: https://cloud.google.com/functions/docs/reference/rest
+  - type: Authentication
+    url: https://cloud.google.com/functions/docs/securing
+  - type: GettingStarted
+    url: https://cloud.google.com/functions/docs/quickstart
+  - type: JSONSchema
+    url: json-schema/google-cloud-functions-function-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/google-cloud-functions/overview
   - type: AgenticAccess
     url: agentic-access/google-cloud-functions-agentic-access.yml
   - type: VulnerabilityDisclosure
