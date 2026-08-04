@@ -1,0 +1,182 @@
+{
+  "info": {
+    "_postman_id": "641ac922-d2cb-42c4-a438-77db8a520fd4",
+    "name": "Google Cloud Functions Locations API",
+    "description": "The Cloud Functions API manages lightweight user-provided functions executed in response to events. It supports creating, updating, deleting, and listing functions, as well as managing their runtimes, build configurations, and triggers.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:47:36.000Z",
+    "updatedAt": "2026-07-28T01:47:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-641ac922-d2cb-42c4-a438-77db8a520fd4"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "Google Cloud Functions List available locations",
+                  "id": "fef3fb40-2179-41ab-9f54-8d00203f4364",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/projects/:projectId/locations?pageSize=<integer>&pageToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "projects",
+                        ":projectId",
+                        "locations"
+                      ],
+                      "query": [
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "pageToken",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "dd682bbe-6cca-4d05-a94c-4b18069d0135",
+                          "key": "projectId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Lists available locations for the given project."
+                  },
+                  "response": [
+                    {
+                      "id": "41003452-3ac2-4a4b-a52e-d1dab4028dca",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/projects/:projectId/locations?pageSize=<integer>&pageToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "projects",
+                            ":projectId",
+                            "locations"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "pageToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "projectId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"locations\": [\n    {\n      \"name\": \"<string>\",\n      \"locationId\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"locationId\": \"<string>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:47:36.000Z",
+                      "updatedAt": "2026-07-28T01:47:36.000Z",
+                      "uid": "35240-41003452-3ac2-4a4b-a52e-d1dab4028dca"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:47:36.000Z",
+                  "updatedAt": "2026-07-28T01:47:36.000Z",
+                  "uid": "35240-fef3fb40-2179-41ab-9f54-8d00203f4364"
+                }
+              ],
+              "id": "538ad021-0166-43e3-a12e-c9ac2d380155",
+              "createdAt": "2026-07-28T01:47:36.000Z",
+              "updatedAt": "2026-07-28T01:47:36.000Z",
+              "uid": "35240-538ad021-0166-43e3-a12e-c9ac2d380155"
+            }
+          ],
+          "id": "148277da-7956-4fe8-ba32-5fdc896704e8",
+          "createdAt": "2026-07-28T01:47:36.000Z",
+          "updatedAt": "2026-07-28T01:47:36.000Z",
+          "uid": "35240-148277da-7956-4fe8-ba32-5fdc896704e8"
+        }
+      ],
+      "id": "4f019c2a-8e0e-48d2-859e-d3b51ce799ab",
+      "createdAt": "2026-07-28T01:47:36.000Z",
+      "updatedAt": "2026-07-28T01:47:36.000Z",
+      "uid": "35240-4f019c2a-8e0e-48d2-859e-d3b51ce799ab"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudfunctions.googleapis.com/v2"
+    }
+  ]
+}

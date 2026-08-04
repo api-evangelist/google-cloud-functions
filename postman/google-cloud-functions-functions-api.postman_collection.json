@@ -1,0 +1,909 @@
+{
+  "info": {
+    "_postman_id": "df6c4076-6167-47ae-92c6-dda3bdfc52c1",
+    "name": "Google Cloud Functions API",
+    "description": "The Cloud Functions API manages lightweight user-provided functions executed in response to events. It supports creating, updating, deleting, and listing functions, as well as managing their runtimes, build configurations, and triggers.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:47:34.000Z",
+    "updatedAt": "2026-07-28T01:47:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-df6c4076-6167-47ae-92c6-dda3bdfc52c1"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "functions",
+                      "item": [
+                        {
+                          "name": "{functionId}",
+                          "item": [
+                            {
+                              "name": "Google Cloud Functions Get a function",
+                              "id": "a5cfb341-7da1-482c-8d95-be82e738486b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions/:functionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "functions",
+                                    ":functionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b1eb933e-ca26-48f4-b85a-dc401a5914c6",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "f3b0ae9b-520c-4984-9517-5d2416be70e3",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "f2e5cb74-a433-44fd-9702-8409628849be",
+                                      "key": "functionId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a function with the given name from the requested project."
+                              },
+                              "response": [
+                                {
+                                  "id": "c408b52a-2593-41dd-835e-efc8ea02ac57",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions/:functionId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "functions",
+                                        ":functionId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        },
+                                        {
+                                          "key": "functionId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"GEN_1\",\n  \"buildConfig\": {\n    \"build\": \"<string>\",\n    \"runtime\": \"<string>\",\n    \"entryPoint\": \"<string>\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"<string>\",\n        \"object\": \"<string>\",\n        \"generation\": \"<string>\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"<string>\",\n        \"repoName\": \"<string>\",\n        \"branchName\": \"<string>\",\n        \"tagName\": \"<string>\",\n        \"commitSha\": \"<string>\",\n        \"dir\": \"<string>\"\n      }\n    },\n    \"dockerRepository\": \"<string>\",\n    \"workerPool\": \"<string>\",\n    \"environmentVariables\": {\n      \"elita9\": \"<string>\"\n    }\n  },\n  \"serviceConfig\": {\n    \"service\": \"<string>\",\n    \"timeoutSeconds\": \"<integer>\",\n    \"availableMemory\": \"<string>\",\n    \"maxInstanceCount\": \"<integer>\",\n    \"minInstanceCount\": \"<integer>\",\n    \"availableCpu\": \"<string>\",\n    \"environmentVariables\": {\n      \"enim_4c1\": \"<string>\",\n      \"sed6\": \"<string>\"\n    },\n    \"maxInstanceRequestConcurrency\": \"<integer>\",\n    \"vpcConnector\": \"<string>\",\n    \"vpcConnectorEgressSettings\": \"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED\",\n    \"ingressSettings\": \"ALLOW_INTERNAL_ONLY\",\n    \"uri\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"allTrafficOnLatestRevision\": \"<boolean>\"\n  },\n  \"eventTrigger\": {\n    \"trigger\": \"<string>\",\n    \"triggerRegion\": \"<string>\",\n    \"eventType\": \"<string>\",\n    \"eventFilters\": [\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      },\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      }\n    ],\n    \"pubsubTopic\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"retryPolicy\": \"RETRY_POLICY_RETRY\",\n    \"channel\": \"<string>\"\n  },\n  \"state\": \"DELETING\",\n  \"updateTime\": \"<dateTime>\",\n  \"labels\": {\n    \"ut_d\": \"<string>\",\n    \"ete9\": \"<string>\",\n    \"quisd5\": \"<string>\",\n    \"Utc\": \"<string>\"\n  },\n  \"url\": \"<string>\",\n  \"kmsKeyName\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:47:34.000Z",
+                                  "updatedAt": "2026-07-28T01:47:34.000Z",
+                                  "uid": "35240-c408b52a-2593-41dd-835e-efc8ea02ac57"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:47:34.000Z",
+                              "updatedAt": "2026-07-28T01:47:34.000Z",
+                              "uid": "35240-a5cfb341-7da1-482c-8d95-be82e738486b"
+                            },
+                            {
+                              "name": "Google Cloud Functions Update a function",
+                              "id": "4a21ea60-1aed-47c5-b084-1341b55c2f77",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"GEN_1\",\n  \"buildConfig\": {\n    \"build\": \"<string>\",\n    \"runtime\": \"<string>\",\n    \"entryPoint\": \"<string>\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"<string>\",\n        \"object\": \"<string>\",\n        \"generation\": \"<string>\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"<string>\",\n        \"repoName\": \"<string>\",\n        \"branchName\": \"<string>\",\n        \"tagName\": \"<string>\",\n        \"commitSha\": \"<string>\",\n        \"dir\": \"<string>\"\n      }\n    },\n    \"dockerRepository\": \"<string>\",\n    \"workerPool\": \"<string>\",\n    \"environmentVariables\": {\n      \"elita9\": \"<string>\"\n    }\n  },\n  \"serviceConfig\": {\n    \"service\": \"<string>\",\n    \"timeoutSeconds\": \"<integer>\",\n    \"availableMemory\": \"<string>\",\n    \"maxInstanceCount\": \"<integer>\",\n    \"minInstanceCount\": \"<integer>\",\n    \"availableCpu\": \"<string>\",\n    \"environmentVariables\": {\n      \"enim_4c1\": \"<string>\",\n      \"sed6\": \"<string>\"\n    },\n    \"maxInstanceRequestConcurrency\": \"<integer>\",\n    \"vpcConnector\": \"<string>\",\n    \"vpcConnectorEgressSettings\": \"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED\",\n    \"ingressSettings\": \"ALLOW_INTERNAL_ONLY\",\n    \"uri\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"allTrafficOnLatestRevision\": \"<boolean>\"\n  },\n  \"eventTrigger\": {\n    \"trigger\": \"<string>\",\n    \"triggerRegion\": \"<string>\",\n    \"eventType\": \"<string>\",\n    \"eventFilters\": [\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      },\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      }\n    ],\n    \"pubsubTopic\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"retryPolicy\": \"RETRY_POLICY_RETRY\",\n    \"channel\": \"<string>\"\n  },\n  \"state\": \"DELETING\",\n  \"updateTime\": \"<dateTime>\",\n  \"labels\": {\n    \"ut_d\": \"<string>\",\n    \"ete9\": \"<string>\",\n    \"quisd5\": \"<string>\",\n    \"Utc\": \"<string>\"\n  },\n  \"url\": \"<string>\",\n  \"kmsKeyName\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions/:functionId?updateMask=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "functions",
+                                    ":functionId"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "updateMask",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b8aaef79-211b-4b7a-b6a4-6ceaf29c847f",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "cd40be40-9d66-4ed4-a4c4-88e5b7f2c26b",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "05aab4d6-ab37-43d1-8c3a-682e4427c2a0",
+                                      "key": "functionId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Updates an existing function."
+                              },
+                              "response": [
+                                {
+                                  "id": "1dfd6fe6-5f3c-470f-8cd9-25d060a66f00",
+                                  "name": "Successful response with long-running operation",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"GEN_1\",\n  \"buildConfig\": {\n    \"build\": \"<string>\",\n    \"runtime\": \"<string>\",\n    \"entryPoint\": \"<string>\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"<string>\",\n        \"object\": \"<string>\",\n        \"generation\": \"<string>\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"<string>\",\n        \"repoName\": \"<string>\",\n        \"branchName\": \"<string>\",\n        \"tagName\": \"<string>\",\n        \"commitSha\": \"<string>\",\n        \"dir\": \"<string>\"\n      }\n    },\n    \"dockerRepository\": \"<string>\",\n    \"workerPool\": \"<string>\",\n    \"environmentVariables\": {\n      \"elita9\": \"<string>\"\n    }\n  },\n  \"serviceConfig\": {\n    \"service\": \"<string>\",\n    \"timeoutSeconds\": \"<integer>\",\n    \"availableMemory\": \"<string>\",\n    \"maxInstanceCount\": \"<integer>\",\n    \"minInstanceCount\": \"<integer>\",\n    \"availableCpu\": \"<string>\",\n    \"environmentVariables\": {\n      \"enim_4c1\": \"<string>\",\n      \"sed6\": \"<string>\"\n    },\n    \"maxInstanceRequestConcurrency\": \"<integer>\",\n    \"vpcConnector\": \"<string>\",\n    \"vpcConnectorEgressSettings\": \"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED\",\n    \"ingressSettings\": \"ALLOW_INTERNAL_ONLY\",\n    \"uri\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"allTrafficOnLatestRevision\": \"<boolean>\"\n  },\n  \"eventTrigger\": {\n    \"trigger\": \"<string>\",\n    \"triggerRegion\": \"<string>\",\n    \"eventType\": \"<string>\",\n    \"eventFilters\": [\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      },\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      }\n    ],\n    \"pubsubTopic\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"retryPolicy\": \"RETRY_POLICY_RETRY\",\n    \"channel\": \"<string>\"\n  },\n  \"state\": \"DELETING\",\n  \"updateTime\": \"<dateTime>\",\n  \"labels\": {\n    \"ut_d\": \"<string>\",\n    \"ete9\": \"<string>\",\n    \"quisd5\": \"<string>\",\n    \"Utc\": \"<string>\"\n  },\n  \"url\": \"<string>\",\n  \"kmsKeyName\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions/:functionId?updateMask=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "functions",
+                                        ":functionId"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "updateMask",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        },
+                                        {
+                                          "key": "functionId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"done\": \"<boolean>\",\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\"\n  },\n  \"response\": {}\n}",
+                                  "createdAt": "2026-07-28T01:47:34.000Z",
+                                  "updatedAt": "2026-07-28T01:47:34.000Z",
+                                  "uid": "35240-1dfd6fe6-5f3c-470f-8cd9-25d060a66f00"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:47:34.000Z",
+                              "updatedAt": "2026-07-28T01:47:34.000Z",
+                              "uid": "35240-4a21ea60-1aed-47c5-b084-1341b55c2f77"
+                            },
+                            {
+                              "name": "Google Cloud Functions Delete a function",
+                              "id": "a884af24-e417-4dcf-a8a1-2ad8b01cbc66",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions/:functionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "functions",
+                                    ":functionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "eba36b59-823a-4f0c-9211-b35c9c5b8a2f",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "2acea08d-06f8-45d8-8010-53b4ecdb8935",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "f4364384-f818-4043-b855-9a39d89e4117",
+                                      "key": "functionId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Deletes a function with the given name from the specified project."
+                              },
+                              "response": [
+                                {
+                                  "id": "34f76966-7ef4-47f3-bf35-c5c6e27fd7aa",
+                                  "name": "Successful response with long-running operation",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions/:functionId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "functions",
+                                        ":functionId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        },
+                                        {
+                                          "key": "functionId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"done\": \"<boolean>\",\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\"\n  },\n  \"response\": {}\n}",
+                                  "createdAt": "2026-07-28T01:47:34.000Z",
+                                  "updatedAt": "2026-07-28T01:47:34.000Z",
+                                  "uid": "35240-34f76966-7ef4-47f3-bf35-c5c6e27fd7aa"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:47:34.000Z",
+                              "updatedAt": "2026-07-28T01:47:34.000Z",
+                              "uid": "35240-a884af24-e417-4dcf-a8a1-2ad8b01cbc66"
+                            }
+                          ],
+                          "id": "8d275fec-4051-40d4-b057-19e8f6af30fb",
+                          "createdAt": "2026-07-28T01:47:34.000Z",
+                          "updatedAt": "2026-07-28T01:47:34.000Z",
+                          "uid": "35240-8d275fec-4051-40d4-b057-19e8f6af30fb"
+                        },
+                        {
+                          "name": "{functionId}:generateUploadUrl",
+                          "item": [
+                            {
+                              "name": "Google Cloud Functions Generate upload URL",
+                              "id": "bc5dec66-b0dd-4c27-90e1-7d986c17c069",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"kmsKeyName\": \"<string>\",\n  \"environment\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions/{{functionId}}:generateUploadUrl",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "functions",
+                                    "{{functionId}}:generateUploadUrl"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f1fb4f0b-9ead-41a0-bcc6-67e3a29b2649",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "a2200942-76a8-4ad4-9be1-057ad38d9519",
+                                      "key": "location",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Returns a signed URL for uploading a function source code."
+                              },
+                              "response": [
+                                {
+                                  "id": "aecee71d-fe1a-4467-b0dd-acdf8746e7ab",
+                                  "name": "Successful response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"kmsKeyName\": \"<string>\",\n  \"environment\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions/{{functionId}}:generateUploadUrl",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "projects",
+                                        ":projectId",
+                                        "locations",
+                                        ":location",
+                                        "functions",
+                                        "{{functionId}}:generateUploadUrl"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "location"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"uploadUrl\": \"<string>\",\n  \"storageSource\": {\n    \"bucket\": \"<string>\",\n    \"object\": \"<string>\",\n    \"generation\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:47:34.000Z",
+                                  "updatedAt": "2026-07-28T01:47:34.000Z",
+                                  "uid": "35240-aecee71d-fe1a-4467-b0dd-acdf8746e7ab"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:47:34.000Z",
+                              "updatedAt": "2026-07-28T01:47:34.000Z",
+                              "uid": "35240-bc5dec66-b0dd-4c27-90e1-7d986c17c069"
+                            }
+                          ],
+                          "id": "5f38a5ce-d0ff-4f74-832b-23dfa5dc8341",
+                          "createdAt": "2026-07-28T01:47:34.000Z",
+                          "updatedAt": "2026-07-28T01:47:34.000Z",
+                          "uid": "35240-5f38a5ce-d0ff-4f74-832b-23dfa5dc8341"
+                        },
+                        {
+                          "name": "Google Cloud Functions List functions",
+                          "id": "3666fad6-5b1d-4c57-ad3d-202b4da72509",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions?pageSize=<integer>&pageToken=<string>&filter=<string>&orderBy=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "functions"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageSize",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "pageToken",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "orderBy",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "28ce2ecb-8b88-474f-87ea-3870fb87905b",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "4ca002ab-736d-49eb-9fa9-0ca3be5e6743",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Lists functions in the given project and location."
+                          },
+                          "response": [
+                            {
+                              "id": "e4036483-a3ce-4d54-87f1-c03525450c81",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions?pageSize=<integer>&pageToken=<string>&filter=<string>&orderBy=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "functions"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "pageSize",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "pageToken",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "orderBy",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"functions\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"environment\": \"GEN_2\",\n      \"buildConfig\": {\n        \"build\": \"<string>\",\n        \"runtime\": \"<string>\",\n        \"entryPoint\": \"<string>\",\n        \"source\": {\n          \"storageSource\": {\n            \"bucket\": \"<string>\",\n            \"object\": \"<string>\",\n            \"generation\": \"<string>\"\n          },\n          \"repoSource\": {\n            \"projectId\": \"<string>\",\n            \"repoName\": \"<string>\",\n            \"branchName\": \"<string>\",\n            \"tagName\": \"<string>\",\n            \"commitSha\": \"<string>\",\n            \"dir\": \"<string>\"\n          }\n        },\n        \"dockerRepository\": \"<string>\",\n        \"workerPool\": \"<string>\",\n        \"environmentVariables\": {\n          \"dolor__b9\": \"<string>\"\n        }\n      },\n      \"serviceConfig\": {\n        \"service\": \"<string>\",\n        \"timeoutSeconds\": \"<integer>\",\n        \"availableMemory\": \"<string>\",\n        \"maxInstanceCount\": \"<integer>\",\n        \"minInstanceCount\": \"<integer>\",\n        \"availableCpu\": \"<string>\",\n        \"environmentVariables\": {\n          \"enim_9\": \"<string>\",\n          \"velit1\": \"<string>\",\n          \"adc\": \"<string>\",\n          \"dolore_6e6\": \"<string>\"\n        },\n        \"maxInstanceRequestConcurrency\": \"<integer>\",\n        \"vpcConnector\": \"<string>\",\n        \"vpcConnectorEgressSettings\": \"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED\",\n        \"ingressSettings\": \"INGRESS_SETTINGS_UNSPECIFIED\",\n        \"uri\": \"<string>\",\n        \"serviceAccountEmail\": \"<string>\",\n        \"allTrafficOnLatestRevision\": \"<boolean>\"\n      },\n      \"eventTrigger\": {\n        \"trigger\": \"<string>\",\n        \"triggerRegion\": \"<string>\",\n        \"eventType\": \"<string>\",\n        \"eventFilters\": [\n          {\n            \"attribute\": \"<string>\",\n            \"value\": \"<string>\",\n            \"operator\": \"<string>\"\n          },\n          {\n            \"attribute\": \"<string>\",\n            \"value\": \"<string>\",\n            \"operator\": \"<string>\"\n          }\n        ],\n        \"pubsubTopic\": \"<string>\",\n        \"serviceAccountEmail\": \"<string>\",\n        \"retryPolicy\": \"RETRY_POLICY_UNSPECIFIED\",\n        \"channel\": \"<string>\"\n      },\n      \"state\": \"DEPLOYING\",\n      \"updateTime\": \"<dateTime>\",\n      \"labels\": {\n        \"incididunt6\": \"<string>\",\n        \"consectetur_b\": \"<string>\"\n      },\n      \"url\": \"<string>\",\n      \"kmsKeyName\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"environment\": \"GEN_2\",\n      \"buildConfig\": {\n        \"build\": \"<string>\",\n        \"runtime\": \"<string>\",\n        \"entryPoint\": \"<string>\",\n        \"source\": {\n          \"storageSource\": {\n            \"bucket\": \"<string>\",\n            \"object\": \"<string>\",\n            \"generation\": \"<string>\"\n          },\n          \"repoSource\": {\n            \"projectId\": \"<string>\",\n            \"repoName\": \"<string>\",\n            \"branchName\": \"<string>\",\n            \"tagName\": \"<string>\",\n            \"commitSha\": \"<string>\",\n            \"dir\": \"<string>\"\n          }\n        },\n        \"dockerRepository\": \"<string>\",\n        \"workerPool\": \"<string>\",\n        \"environmentVariables\": {\n          \"ea8\": \"<string>\",\n          \"exercitationf\": \"<string>\",\n          \"ut_8b\": \"<string>\",\n          \"dolore_c\": \"<string>\",\n          \"dolor_2\": \"<string>\"\n        }\n      },\n      \"serviceConfig\": {\n        \"service\": \"<string>\",\n        \"timeoutSeconds\": \"<integer>\",\n        \"availableMemory\": \"<string>\",\n        \"maxInstanceCount\": \"<integer>\",\n        \"minInstanceCount\": \"<integer>\",\n        \"availableCpu\": \"<string>\",\n        \"environmentVariables\": {\n          \"deserunt_e5f\": \"<string>\"\n        },\n        \"maxInstanceRequestConcurrency\": \"<integer>\",\n        \"vpcConnector\": \"<string>\",\n        \"vpcConnectorEgressSettings\": \"PRIVATE_RANGES_ONLY\",\n        \"ingressSettings\": \"ALLOW_INTERNAL_AND_GCLB\",\n        \"uri\": \"<string>\",\n        \"serviceAccountEmail\": \"<string>\",\n        \"allTrafficOnLatestRevision\": \"<boolean>\"\n      },\n      \"eventTrigger\": {\n        \"trigger\": \"<string>\",\n        \"triggerRegion\": \"<string>\",\n        \"eventType\": \"<string>\",\n        \"eventFilters\": [\n          {\n            \"attribute\": \"<string>\",\n            \"value\": \"<string>\",\n            \"operator\": \"<string>\"\n          },\n          {\n            \"attribute\": \"<string>\",\n            \"value\": \"<string>\",\n            \"operator\": \"<string>\"\n          }\n        ],\n        \"pubsubTopic\": \"<string>\",\n        \"serviceAccountEmail\": \"<string>\",\n        \"retryPolicy\": \"RETRY_POLICY_RETRY\",\n        \"channel\": \"<string>\"\n      },\n      \"state\": \"UNKNOWN\",\n      \"updateTime\": \"<dateTime>\",\n      \"labels\": {\n        \"sit4\": \"<string>\",\n        \"velit6c7\": \"<string>\"\n      },\n      \"url\": \"<string>\",\n      \"kmsKeyName\": \"<string>\"\n    }\n  ],\n  \"nextPageToken\": \"<string>\",\n  \"unreachable\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "createdAt": "2026-07-28T01:47:34.000Z",
+                              "updatedAt": "2026-07-28T01:47:34.000Z",
+                              "uid": "35240-e4036483-a3ce-4d54-87f1-c03525450c81"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:47:34.000Z",
+                          "updatedAt": "2026-07-28T01:47:34.000Z",
+                          "uid": "35240-3666fad6-5b1d-4c57-ad3d-202b4da72509"
+                        },
+                        {
+                          "name": "Google Cloud Functions Create a function",
+                          "id": "613a86d7-6d09-41e4-9a63-32b6fa4e4801",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"GEN_1\",\n  \"buildConfig\": {\n    \"build\": \"<string>\",\n    \"runtime\": \"<string>\",\n    \"entryPoint\": \"<string>\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"<string>\",\n        \"object\": \"<string>\",\n        \"generation\": \"<string>\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"<string>\",\n        \"repoName\": \"<string>\",\n        \"branchName\": \"<string>\",\n        \"tagName\": \"<string>\",\n        \"commitSha\": \"<string>\",\n        \"dir\": \"<string>\"\n      }\n    },\n    \"dockerRepository\": \"<string>\",\n    \"workerPool\": \"<string>\",\n    \"environmentVariables\": {\n      \"elita9\": \"<string>\"\n    }\n  },\n  \"serviceConfig\": {\n    \"service\": \"<string>\",\n    \"timeoutSeconds\": \"<integer>\",\n    \"availableMemory\": \"<string>\",\n    \"maxInstanceCount\": \"<integer>\",\n    \"minInstanceCount\": \"<integer>\",\n    \"availableCpu\": \"<string>\",\n    \"environmentVariables\": {\n      \"enim_4c1\": \"<string>\",\n      \"sed6\": \"<string>\"\n    },\n    \"maxInstanceRequestConcurrency\": \"<integer>\",\n    \"vpcConnector\": \"<string>\",\n    \"vpcConnectorEgressSettings\": \"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED\",\n    \"ingressSettings\": \"ALLOW_INTERNAL_ONLY\",\n    \"uri\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"allTrafficOnLatestRevision\": \"<boolean>\"\n  },\n  \"eventTrigger\": {\n    \"trigger\": \"<string>\",\n    \"triggerRegion\": \"<string>\",\n    \"eventType\": \"<string>\",\n    \"eventFilters\": [\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      },\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      }\n    ],\n    \"pubsubTopic\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"retryPolicy\": \"RETRY_POLICY_RETRY\",\n    \"channel\": \"<string>\"\n  },\n  \"state\": \"DELETING\",\n  \"updateTime\": \"<dateTime>\",\n  \"labels\": {\n    \"ut_d\": \"<string>\",\n    \"ete9\": \"<string>\",\n    \"quisd5\": \"<string>\",\n    \"Utc\": \"<string>\"\n  },\n  \"url\": \"<string>\",\n  \"kmsKeyName\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions?functionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "functions"
+                              ],
+                              "query": [
+                                {
+                                  "key": "functionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "df159379-318c-43e0-ab16-98c7d0b3be62",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "1f01b014-6e83-43b1-85bd-c3cbfdeece49",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Creates a new function in the given project and location."
+                          },
+                          "response": [
+                            {
+                              "id": "957ce3ab-8648-4b9c-b194-5e280528a0f4",
+                              "name": "Successful response with long-running operation",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"environment\": \"GEN_1\",\n  \"buildConfig\": {\n    \"build\": \"<string>\",\n    \"runtime\": \"<string>\",\n    \"entryPoint\": \"<string>\",\n    \"source\": {\n      \"storageSource\": {\n        \"bucket\": \"<string>\",\n        \"object\": \"<string>\",\n        \"generation\": \"<string>\"\n      },\n      \"repoSource\": {\n        \"projectId\": \"<string>\",\n        \"repoName\": \"<string>\",\n        \"branchName\": \"<string>\",\n        \"tagName\": \"<string>\",\n        \"commitSha\": \"<string>\",\n        \"dir\": \"<string>\"\n      }\n    },\n    \"dockerRepository\": \"<string>\",\n    \"workerPool\": \"<string>\",\n    \"environmentVariables\": {\n      \"elita9\": \"<string>\"\n    }\n  },\n  \"serviceConfig\": {\n    \"service\": \"<string>\",\n    \"timeoutSeconds\": \"<integer>\",\n    \"availableMemory\": \"<string>\",\n    \"maxInstanceCount\": \"<integer>\",\n    \"minInstanceCount\": \"<integer>\",\n    \"availableCpu\": \"<string>\",\n    \"environmentVariables\": {\n      \"enim_4c1\": \"<string>\",\n      \"sed6\": \"<string>\"\n    },\n    \"maxInstanceRequestConcurrency\": \"<integer>\",\n    \"vpcConnector\": \"<string>\",\n    \"vpcConnectorEgressSettings\": \"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED\",\n    \"ingressSettings\": \"ALLOW_INTERNAL_ONLY\",\n    \"uri\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"allTrafficOnLatestRevision\": \"<boolean>\"\n  },\n  \"eventTrigger\": {\n    \"trigger\": \"<string>\",\n    \"triggerRegion\": \"<string>\",\n    \"eventType\": \"<string>\",\n    \"eventFilters\": [\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      },\n      {\n        \"attribute\": \"<string>\",\n        \"value\": \"<string>\",\n        \"operator\": \"<string>\"\n      }\n    ],\n    \"pubsubTopic\": \"<string>\",\n    \"serviceAccountEmail\": \"<string>\",\n    \"retryPolicy\": \"RETRY_POLICY_RETRY\",\n    \"channel\": \"<string>\"\n  },\n  \"state\": \"DELETING\",\n  \"updateTime\": \"<dateTime>\",\n  \"labels\": {\n    \"ut_d\": \"<string>\",\n    \"ete9\": \"<string>\",\n    \"quisd5\": \"<string>\",\n    \"Utc\": \"<string>\"\n  },\n  \"url\": \"<string>\",\n  \"kmsKeyName\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/functions?functionId=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "functions"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "functionId",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"metadata\": {},\n  \"done\": \"<boolean>\",\n  \"error\": {\n    \"code\": \"<integer>\",\n    \"message\": \"<string>\"\n  },\n  \"response\": {}\n}",
+                              "createdAt": "2026-07-28T01:47:34.000Z",
+                              "updatedAt": "2026-07-28T01:47:34.000Z",
+                              "uid": "35240-957ce3ab-8648-4b9c-b194-5e280528a0f4"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:47:34.000Z",
+                          "updatedAt": "2026-07-28T01:47:34.000Z",
+                          "uid": "35240-613a86d7-6d09-41e4-9a63-32b6fa4e4801"
+                        }
+                      ],
+                      "id": "0ab7758c-91ff-40c6-b413-c2506f5e747b",
+                      "createdAt": "2026-07-28T01:47:34.000Z",
+                      "updatedAt": "2026-07-28T01:47:34.000Z",
+                      "uid": "35240-0ab7758c-91ff-40c6-b413-c2506f5e747b"
+                    }
+                  ],
+                  "id": "ee959c0a-0912-4f17-854b-df30faa5eef6",
+                  "createdAt": "2026-07-28T01:47:34.000Z",
+                  "updatedAt": "2026-07-28T01:47:34.000Z",
+                  "uid": "35240-ee959c0a-0912-4f17-854b-df30faa5eef6"
+                }
+              ],
+              "id": "4b08f412-35f0-4bc2-9454-eec271ec8320",
+              "createdAt": "2026-07-28T01:47:34.000Z",
+              "updatedAt": "2026-07-28T01:47:34.000Z",
+              "uid": "35240-4b08f412-35f0-4bc2-9454-eec271ec8320"
+            }
+          ],
+          "id": "75eed51b-4a7a-4391-82a4-72d9a12e8ed8",
+          "createdAt": "2026-07-28T01:47:34.000Z",
+          "updatedAt": "2026-07-28T01:47:34.000Z",
+          "uid": "35240-75eed51b-4a7a-4391-82a4-72d9a12e8ed8"
+        }
+      ],
+      "id": "04122bbd-b189-454b-8a0b-3bd15846e016",
+      "createdAt": "2026-07-28T01:47:34.000Z",
+      "updatedAt": "2026-07-28T01:47:34.000Z",
+      "uid": "35240-04122bbd-b189-454b-8a0b-3bd15846e016"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudfunctions.googleapis.com/v2"
+    },
+    {
+      "key": "functionId",
+      "value": "<string>"
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "info": {
+    "_postman_id": "a89803ac-294d-4b11-a47b-92fee44792a0",
+    "name": "Google Cloud Functions Runtimes API",
+    "description": "The Cloud Functions API manages lightweight user-provided functions executed in response to events. It supports creating, updating, deleting, and listing functions, as well as managing their runtimes, build configurations, and triggers.\n\nContact Support:\n Name: Google Cloud",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:47:51.000Z",
+    "updatedAt": "2026-07-28T01:47:52.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a89803ac-294d-4b11-a47b-92fee44792a0"
+  },
+  "item": [
+    {
+      "name": "projects",
+      "item": [
+        {
+          "name": "{projectId}",
+          "item": [
+            {
+              "name": "locations",
+              "item": [
+                {
+                  "name": "{location}",
+                  "item": [
+                    {
+                      "name": "runtimes",
+                      "item": [
+                        {
+                          "name": "Google Cloud Functions List runtimes",
+                          "id": "790b7f0a-698e-478d-8a0c-ac01b99f018b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/projects/:projectId/locations/:location/runtimes?filter=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "projects",
+                                ":projectId",
+                                "locations",
+                                ":location",
+                                "runtimes"
+                              ],
+                              "query": [
+                                {
+                                  "key": "filter",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "bd35099e-bd70-4699-9e0c-cee6da286586",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "2dff79a0-6919-4c12-a9b2-2d554e20a2fc",
+                                  "key": "location",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Returns a list of runtimes that are supported for the requested project."
+                          },
+                          "response": [
+                            {
+                              "id": "2a146142-f849-4879-a892-10ab198e4bde",
+                              "name": "Successful response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/projects/:projectId/locations/:location/runtimes?filter=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "projects",
+                                    ":projectId",
+                                    "locations",
+                                    ":location",
+                                    "runtimes"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "filter",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    },
+                                    {
+                                      "key": "location"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"runtimes\": [\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"stage\": \"GA\",\n      \"warnings\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"environment\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"stage\": \"DEPRECATED\",\n      \"warnings\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"environment\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:47:52.000Z",
+                              "updatedAt": "2026-07-28T01:47:52.000Z",
+                              "uid": "35240-2a146142-f849-4879-a892-10ab198e4bde"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:47:52.000Z",
+                          "updatedAt": "2026-07-28T01:47:52.000Z",
+                          "uid": "35240-790b7f0a-698e-478d-8a0c-ac01b99f018b"
+                        }
+                      ],
+                      "id": "cfd4aea2-de17-424d-8c50-103eea4f8dc2",
+                      "createdAt": "2026-07-28T01:47:52.000Z",
+                      "updatedAt": "2026-07-28T01:47:52.000Z",
+                      "uid": "35240-cfd4aea2-de17-424d-8c50-103eea4f8dc2"
+                    }
+                  ],
+                  "id": "d42e37b5-e44e-42f7-b2a2-204d26ac694c",
+                  "createdAt": "2026-07-28T01:47:52.000Z",
+                  "updatedAt": "2026-07-28T01:47:52.000Z",
+                  "uid": "35240-d42e37b5-e44e-42f7-b2a2-204d26ac694c"
+                }
+              ],
+              "id": "c3f43fef-92a7-4980-b845-ff5c9b38f213",
+              "createdAt": "2026-07-28T01:47:52.000Z",
+              "updatedAt": "2026-07-28T01:47:52.000Z",
+              "uid": "35240-c3f43fef-92a7-4980-b845-ff5c9b38f213"
+            }
+          ],
+          "id": "a9865834-5fb7-4b8a-a85b-c1b6ecdbafbd",
+          "createdAt": "2026-07-28T01:47:52.000Z",
+          "updatedAt": "2026-07-28T01:47:52.000Z",
+          "uid": "35240-a9865834-5fb7-4b8a-a85b-c1b6ecdbafbd"
+        }
+      ],
+      "id": "df8b41fa-fc89-4b3b-8f1f-ed6e9fb4fb74",
+      "createdAt": "2026-07-28T01:47:52.000Z",
+      "updatedAt": "2026-07-28T01:47:52.000Z",
+      "uid": "35240-df8b41fa-fc89-4b3b-8f1f-ed6e9fb4fb74"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://www.googleapis.com/auth/cloud-platform",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/auth",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudfunctions.googleapis.com/v2"
+    }
+  ]
+}
