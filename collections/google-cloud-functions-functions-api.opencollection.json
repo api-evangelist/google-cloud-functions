@@ -1,0 +1,230 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Google Cloud Functions API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Functions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Google Cloud Functions List functions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudfunctions.googleapis.com/v2/projects/:projectId/locations/:location/functions",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists functions in the given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Functions Create a function",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloudfunctions.googleapis.com/v2/projects/:projectId/locations/:location/functions",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "functionId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new function in the given project and location."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Functions Get a function",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudfunctions.googleapis.com/v2/projects/:projectId/locations/:location/functions/:functionId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "functionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a function with the given name from the requested project."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Functions Update a function",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://cloudfunctions.googleapis.com/v2/projects/:projectId/locations/:location/functions/:functionId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "functionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "updateMask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing function."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Functions Delete a function",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://cloudfunctions.googleapis.com/v2/projects/:projectId/locations/:location/functions/:functionId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "functionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deletes a function with the given name from the specified project."
+        },
+        {
+          "info": {
+            "name": "Google Cloud Functions Generate upload URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://cloudfunctions.googleapis.com/v2/projects/:projectId/locations/:location/functions/:functionId:generateUploadUrl",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "functionId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a signed URL for uploading a function source code."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
