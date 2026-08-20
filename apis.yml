@@ -69,7 +69,8 @@ apis:
   description: Long-running operation management
   humanURL: https://cloud.google.com/functions/docs
   baseURL: https://cloudfunctions.googleapis.com
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
