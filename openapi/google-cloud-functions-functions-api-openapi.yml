@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Google Cloud Functions API
   description: The Cloud Functions API manages lightweight user-provided functions executed in response to events. It supports creating, updating, deleting, and listing functions, as well as managing their runtimes, build configurations, and triggers.
@@ -263,6 +263,19 @@ components:
               type: string
         response:
           type: object
+    ListFunctionsResponse:
+      type: object
+      properties:
+        functions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Function'
+        nextPageToken:
+          type: string
+        unreachable:
+          type: array
+          items:
+            type: string
     Function:
       type: object
       properties:
@@ -422,19 +435,6 @@ components:
           description: Output only. The deployed URL for the function.
         kmsKeyName:
           type: string
-    ListFunctionsResponse:
-      type: object
-      properties:
-        functions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Function'
-        nextPageToken:
-          type: string
-        unreachable:
-          type: array
-          items:
-            type: string
   securitySchemes:
     oauth2:
       type: oauth2
