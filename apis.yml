@@ -64,6 +64,8 @@ apis:
   humanURL: https://cloud.google.com/functions/docs
   baseURL: https://cloudfunctions.googleapis.com
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
