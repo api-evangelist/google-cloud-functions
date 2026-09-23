@@ -1,10 +1,7 @@
 {
   "provider": "google-cloud-functions",
   "sources": [
-    "google-cloud-functions-functions-api-openapi.yml",
-    "google-cloud-functions-locations-api-openapi.yml",
-    "google-cloud-functions-operations-api-openapi.yml",
-    "google-cloud-functions-runtimes-api-openapi.yml"
+    "_original/google-cloud-functions-openapi.yml"
   ],
   "outputs": [
     "google-cloud-functions-functions-api-openapi.yml",
@@ -16,11 +13,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "google-cloud-functions-functions-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-cloud-functions-locations-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-cloud-functions-operations-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "google-cloud-functions-runtimes-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "google-cloud-functions-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "google-cloud-functions-functions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-cloud-functions-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-cloud-functions-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-cloud-functions-runtimes-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

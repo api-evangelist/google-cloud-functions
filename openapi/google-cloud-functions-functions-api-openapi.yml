@@ -263,19 +263,6 @@ components:
               type: string
         response:
           type: object
-    ListFunctionsResponse:
-      type: object
-      properties:
-        functions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Function'
-        nextPageToken:
-          type: string
-        unreachable:
-          type: array
-          items:
-            type: string
     Function:
       type: object
       properties:
@@ -435,6 +422,19 @@ components:
           description: Output only. The deployed URL for the function.
         kmsKeyName:
           type: string
+    ListFunctionsResponse:
+      type: object
+      properties:
+        functions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Function'
+        nextPageToken:
+          type: string
+        unreachable:
+          type: array
+          items:
+            type: string
   securitySchemes:
     oauth2:
       type: oauth2
