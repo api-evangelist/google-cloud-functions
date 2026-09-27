@@ -245,24 +245,6 @@ paths:
                         type: string
 components:
   schemas:
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        metadata:
-          type: object
-        done:
-          type: boolean
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
-        response:
-          type: object
     Function:
       type: object
       properties:
@@ -435,6 +417,24 @@ components:
           type: array
           items:
             type: string
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
   securitySchemes:
     oauth2:
       type: oauth2
