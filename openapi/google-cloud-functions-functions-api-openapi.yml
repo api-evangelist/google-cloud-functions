@@ -258,6 +258,24 @@ components:
           type: array
           items:
             type: string
+    Operation:
+      type: object
+      properties:
+        name:
+          type: string
+        metadata:
+          type: object
+        done:
+          type: boolean
+        error:
+          type: object
+          properties:
+            code:
+              type: integer
+            message:
+              type: string
+        response:
+          type: object
     Function:
       type: object
       properties:
@@ -417,24 +435,6 @@ components:
           description: Output only. The deployed URL for the function.
         kmsKeyName:
           type: string
-    Operation:
-      type: object
-      properties:
-        name:
-          type: string
-        metadata:
-          type: object
-        done:
-          type: boolean
-        error:
-          type: object
-          properties:
-            code:
-              type: integer
-            message:
-              type: string
-        response:
-          type: object
   securitySchemes:
     oauth2:
       type: oauth2
