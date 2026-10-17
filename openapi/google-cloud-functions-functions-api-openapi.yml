@@ -245,19 +245,6 @@ paths:
                         type: string
 components:
   schemas:
-    ListFunctionsResponse:
-      type: object
-      properties:
-        functions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Function'
-        nextPageToken:
-          type: string
-        unreachable:
-          type: array
-          items:
-            type: string
     Operation:
       type: object
       properties:
@@ -276,6 +263,19 @@ components:
               type: string
         response:
           type: object
+    ListFunctionsResponse:
+      type: object
+      properties:
+        functions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Function'
+        nextPageToken:
+          type: string
+        unreachable:
+          type: array
+          items:
+            type: string
     Function:
       type: object
       properties:
